@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoro Tribute – The Way of the Swordsman</title>
+    <style>
+        /* Reset + base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Background video */
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        /* Dark overlay for readability */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: -1;
+        }
+
+        .key {
+            position: absolute;
+            top: 100px;
+            right: 70px;
+            font-size: 1.3rem;
+            color: #7CFF8A;
+            font-family: 'Courier New', Courier, monospace;
+            line-height: 34px;
+            list-style: none;
+        }
+
+        .key span {
+            font-size: 1.3rem;
+            font-weight: bolder;
+            color: #e0ffe8;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @media (max-width: 430px) {
+            .key {
+                top: 50px;
+                left: 15px;   
+            }
+        }
+
+        /* Hero section */
+        .hero {
+            height: 100vh;
+            width: 100dvw;
+            position: relative;
+            top: 350px;
+            left: 20px;
+            margin: 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #7CFF8A;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            max-width: 600px;
+            font-size: 1.2rem;
+            color: #e0ffe8;
+            margin-bottom: 2rem;
+        }
+
+        .hero i {
+            color: #7CFF8A;
+        }
+
+        .hero h2 {
+            letter-spacing: 2px;
+            color: #7CFF8A;
+            margin-bottom: 1rem;
+            font-size: 1.7rem;
+        }
+
+        @media (max-width: 430px) {
+            .hero {
+                top: 350px;
+                left: 0px;
+                margin: auto;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 800px;
+             }
+
+            .hero h2 {
+                 text-align: center;
+            }
+        }
+
+        .btn {
+            padding: 12px 28px;
+            margin: 10px;
+            border-radius: 60px;
+            border: 2px solid #1aa04a;
+            background: transparent;
+            color: #7CFF8A;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #1aa04a;
+            color: #fff;
+        }
+
+        /* About section */
+        .about {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: 15px;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #7CFF8A;
+        }
+
+        .about h3 {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #7CFF8A;
+        }
+
+        .about p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #e5e5e5;
+            margin-bottom: 15px;
+        }
+
+        .about ul {
+            list-style-type: none;
+            margin-left: 20px;
+            margin-bottom: 15px;
+            color: #e5e5e5;
+        }
+
+        .about li {
+            margin-bottom: 10px;
+        }
+
+        .about i {
+            color: #7CFF8A;
+        }
+
+        .quotes {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin-top: -100px;
+            margin-left: auto;
+            margin-right: 20px;
+            text-align: center;
+        }
+
+        .quotes h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #7CFF8A;
+        }
+
+        blockquote {
+            font-style: italic;
+            color: #e5e5e5;
+            padding-left: 15px;
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 430px) {
+            .quotes {
+                margin-top: -200px;
+                text-align: center;
+            }
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 20px;
+            margin: auto;
+        }
+
+        /* Gallery Container */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            align-items: center;
+         }
+
+        /* Video styling */
+        .gallery video {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.7);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        /* Hover animation */
+        .gallery video:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 255, 136, 1), 0 0 60px rgba(0, 255, 136, 0.8);
+        }
+
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+            color: #aaa;
+            background: rgba(0, 0, 0, 0.65);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background video -->
+    <video class="video-bg" autoplay muted loop playsinline>
+        <source src="green-fumes.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="overlay"></div>
+
+    <div class="key"><span>Symbol of —</span>
+        <li>
+            <ul>⚔️ 3 Sword Style</ul>
+            <ul>Loyalty 🪶</ul>
+            <ul>Determination 🍃</ul>
+        </li>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>The Way of Swordsman</h1>
+        <p>A tribute to <i>Roronoa Zoro</i> — fearless warrior, strength, focus, and the scent of battle.</p>
+        <div>
+            <!-- <button class="btn">Explore Moves</button> -->
+            <button class="btn">Download Wallpaper</button>
+        </div>
+    </section>
+
+    <!-- About -->
+    <section class="about">
+        <h2>About Zoro</h2>
+        <h3>Who is Zoro?</h3>
+        <p>‟Roronoa Zoro is one of the most powerful swordsmen in the One Piece world.
+            A relentless duelist whose three-sword style carved him into legend. Focused, stubborn, and fiercely loyal —
+            this is a stylized tribute capturing his essence.”</p>
+        <ul>
+            <li><i>Goal </i>: To become the World’s Greatest Swordsman.</li>
+            <li><i>Weapon </i>: Wado Ichimonji, Sandai Kitetsu, Enma.</li>
+            <li><i>Spirit </i>: Loyalty 🪶, Determination 🍃, Honor.</li>
+        </ul>
+        <h3>Personality</h3>
+        <p>Zoro is known for his serious demeanor, unwavering focus, and a strong sense of loyalty to his friends and
+            crew. Despite his tough exterior, he has a deep sense of honor and justice.</p>
+        <h3>Notable Achievements</h3>
+        <ul>
+            <li>Defeated powerful foes like Mr. 1 (Daz Bonez) and Kaku.</li>
+            <li>Survived the brutal Baratie arc and the intense Enies Lobby battle.</li>
+            <li>Trained under Dracule Mihawk, the world’s greatest swordsman.</li>
+        </ul>
+    </section>
+
+    <!-- Moves -->
+    <section class="hero" style="margin-top: -380px;">
+        <h2>Signature Moves</h2>
+        <p style="font-size: 1.1rem;">From <em>Oni Giri</em> to <em>Sanzen Sekai</em>, Zoro’s mastery of Santoryu
+            (three-sword style) has carved
+            legends across the seas.</p>
+    </section>
+
+    <section class="quotes">
+        <h2>Quotes</h2>
+        <blockquote>
+            <p>"Scars on the back are a swordsman’s shame."</p>
+        </blockquote>
+        <blockquote>
+            <p>“I don’t care who you are. I will never lose to you.”</p>
+        </blockquote>
+    </section>
+
+    <!-- Gallery -->
+    <section>
+        <h2 style="color: #7CFF8A; margin: -125px 0 35px 25px; font-size: 2rem; letter-spacing: 1.5px;">Gallery</h2>
+        <div class="gallery">
+            <video src="green-fumes.mp4" autoplay muted loop playsinline></video>
+            <video src="zoro1.mp4" autoplay muted loop playsinline></video>
+            <video src="zoro2.mp4" autoplay muted loop playsinline></video>
+            <video src="zoro3.mp4" autoplay muted loop playsinline></video>
+        </div>
+    </section>
+
+    <section style="height: 100px; margin-top: -50px;">
+        <blockquote style="font-size: larger;">"Nothing Happened."– <i style="color: #7CFF8A;">Zoro</i></blockquote>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>This is a fan-made tribute site. All rights belong to Eiichiro Oda / Shueisha / Toei Animation.</p>
+    </footer>
+
+</body>
+<script>
+    // JavaScript: Download Logic
+    document.querySelector('.btn').addEventListener('click', () => {
+        const link = document.createElement('a');
+        link.href = 'green-fumes.mp4';   // path to your video
+        link.download = 'Zoro-Wallpaper.mp4'; // filename for saving
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    });
+</script>
+
+</html>
